@@ -41,7 +41,7 @@ gcc -O2 -Wall -Wextra gps_if_sim.c -lm -o gps_if_sim
 Generate a longer capture with a stronger signal.
 
 ```bash
-./gps_if_sim --prn 1 --delay 200 --dopp -2500 --ms 50 --cn0 55 > gps_if.txt
+./gps_if_sim --prn 1 --delay 200 --dopp -2500 --ms 100 --cn0 55 > gps_if.txt
 ```
 
 # gps_if_acq.py

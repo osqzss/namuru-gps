@@ -18,7 +18,7 @@
 #define CA_LEN 1023
 
 // Data bit
-#define BIT_MS 5
+#define BIT_MS 10
 
 // Standard GPS PRN 1..37 G2 tap pairs (phase selectors).
 // Each entry is two tap positions (1..10) XORed from G2.
