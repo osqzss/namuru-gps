@@ -1,7 +1,6 @@
 # gps_if_sim
 
-`gps_if_sim` is a small command-line utility that generates **GPS L1 C/A-like real IF samples** for RTL/FPGA correlator and acquisition testing.  
-It synthesizes a selected PRN C/A code (PRN 1–37) mixed to an IF carrier (center frequency + Doppler), adds AWGN, and then outputs **2-bit sign/magnitude** samples that mimic a typical GNSS RF IC quantizer.
+`gps_if_sim` is a small command-line utility that generates **GPS L1 C/A-like real IF samples** for RTL/FPGA correlator and acquisition testing. It synthesizes a selected PRN C/A code (PRN 1–37) mixed to an IF carrier (center frequency + Doppler), adds AWGN, and then outputs **2-bit sign/magnitude** samples that mimic a typical GNSS RF IC quantizer.
 
 Each output sample is written as two bits:
 
