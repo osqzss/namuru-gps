@@ -54,4 +54,15 @@ plt.ylabel("Q_prompt")
 plt.legend()
 plt.tight_layout()
 
+# Figure 3: I/Q prompt vs dump index
+
+plt.figure(3)
+plt.plot(t0, i0, label="I Prompt")
+plt.plot(t0, q0, label="Q Prompt")
+plt.grid(True)
+plt.xlabel("Dump index")
+plt.ylabel("I/Q_prompt")
+plt.legend()
+plt.tight_layout()
+
 plt.show()

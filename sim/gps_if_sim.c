@@ -17,6 +17,9 @@
 #define CHIP_RATE 1.023e6
 #define CA_LEN 1023
 
+// Data bit
+#define BIT_MS 5
+
 // Standard GPS PRN 1..37 G2 tap pairs (phase selectors).
 // Each entry is two tap positions (1..10) XORed from G2.
 typedef struct { int t1, t2; } g2tap_t;
@@ -149,14 +152,39 @@ int main(int argc, char **argv) {
 
     uint32_t rng = seed ? seed : 1;
 
+    // Update the data bit every BIT_MS milliseconds.
+    int data_bit = +1;          // +1 or -1
+    uint64_t epoch_count = 0;   // counts C/A code epochs (each time chip_f wraps)
+    double prev_chip_f = 0.0;
+    int prev_valid = 0;
+
     for (uint64_t n = 0; n < N; n++) {
         double t_chip = ((double)n) * (CHIP_RATE / fs);
         double chip_f = fmod(codephase + t_chip, (double)CA_LEN);
         if (chip_f < 0) chip_f += CA_LEN;
+
+        // Detect C/A code epoch boundary by wrap-around of chip_f.
+        if (prev_valid) {
+            if (chip_f < prev_chip_f) {
+                epoch_count++;
+                if ((epoch_count % BIT_MS) == 0) {
+                    // new nav data bit (+1/-1)
+                    //data_bit = (urand(&rng) < 0.5) ? +1 : -1;
+                    data_bit *= -1;
+                }
+            }
+        } else {
+            prev_valid = 1;
+        }
+        prev_chip_f = chip_f;
+
         int chip_idx = (int)floor(chip_f);
         double c = (double)ca[chip_idx];
 
         double s = A * c * cos(phase) + grand(&rng);
+
+        // Apply navigation data bit
+        s *= (double)data_bit;
 
         int is, im;
         quantize_2bit(s, &is, &im);

@@ -22,7 +22,7 @@ module tb_tracking_channel;
   localparam integer CODE_SLEW_HC = CODE_DELAY * 2;
 
   // IF Doppler in Hz
-  localparam real IF_DOPPLER_HZ = 1500.0; // <-- set to match the IF generator (Hz)
+  localparam real IF_DOPPLER_HZ = -2500.0; // <-- set to match the IF generator (Hz)
 
   // NCO control words fixed for 16.368MHz clock
   // IF center = 4.092MHz => f_control = 0x10000000 (29-bit)
