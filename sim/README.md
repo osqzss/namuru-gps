@@ -60,3 +60,13 @@ It:
   - IF power spectrum
   - correlation vs. code delay at the best Doppler bin
   - Doppler search metric curve
+
+## Usage
+
+Generate IF data with `gps_if_sim`, then run acquisition using only file name and PRN (other parameters use defaults).
+
+**Example**
+
+```bash
+python gps_if_acq.py --prn 1 --file ../gps_if.txt
+```
