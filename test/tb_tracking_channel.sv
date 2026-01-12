@@ -258,6 +258,9 @@ module tb_tracking_channel;
       if ((ip_pow < ie_pow) || (ip_pow < il_pow) || (ip_pow < MIN_PROMPT_POW)) begin
         $display("WARNING @ t=%0t: weak/incorrect correlation? dump=%0d PowE=%0d PowP=%0d PowL=%0d",
                  $time, dump_count, ie_pow, ip_pow, il_pow);
+      end else begin
+        $display("OK @ t=%0t: dump=%0d PowE=%0d PowP=%0d PowL=%0d",
+                 $time, dump_count, ie_pow, ip_pow, il_pow);
       end
 
       dump_count <= dump_count + 1;
