@@ -30,7 +30,7 @@ The testbench reads the IF file from Step 1 and outputs correlation results (ear
 
 Make sure the following parameters in `test/tb_tracking_channel.sv` match the IF generator settings:
 
-- `PRN_KEY_INIT`: PRN selection / G2 initial state (See prn_keys.txt)
+- `PRN_KEY_INIT`: PRN selection / G2 initial state (See [prn_keys.txt](https://github.com/osqzss/namuru-gps/blob/main/prn_keys.txt))
 - `CODE_DELAY`: Code delay in chip
 - `IF_DOPPLER_HZ`: Carrier Doppler in Hz
 
