@@ -44,5 +44,5 @@ python corr_dump_plot.py
 
 ## Status
 
-As of now, the publicly available HDL is verified up to `tracking_channel.sv`.
+(**2026/01/13**) As of now, the publicly available HDL is verified up to `tracking_channel.sv`.
 An AXI4-Lite control interface wrapper will be added after its operation is fully validated.
