@@ -90,9 +90,9 @@ module code_gen (
   end
 
   assign srq    = shft_reg;
-  assign early  = srq[0];
+  assign early  = srq[2];
   assign prompt = srq[1];
-  assign late   = srq[2];
+  assign late   = srq[0];
 
   // --------------------------------------------------------------------------
   // Counter 3: counts hc_enable, reset on dump_enable; latched to code_phase on TIC
