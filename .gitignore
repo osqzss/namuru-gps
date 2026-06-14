@@ -1,0 +1,8 @@
+.venv
+*.o
+corr_dump.txt
+gps_if.txt
+gps_if_sim
+sim_gps_baseband_axi4lite
+vivado
+vitis_ws
